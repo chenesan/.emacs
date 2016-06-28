@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;c/c++ style
-(add-hook 'c-mode-common-hook' autopair-mode)
+;(add-hook 'c-mode-common-hook' autopair-mode)
 (add-hook 'c-mode-common-hook' auto-complete-mode)
 (setq-default indent-tabs-mode nil) ;; use spaces instead of tab
 (setq-default c-basic-offset 4) ;; set c based language indent to 4
@@ -57,6 +57,7 @@ inhibit-startup-echo-area-message t)
 ;;full screen
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 ;;color
 (add-to-list 'default-frame-alist '(foreground-color . "#E0DFDB"))
 (add-to-list 'default-frame-alist '(background-color . "#000000"))
@@ -66,5 +67,33 @@ inhibit-startup-echo-area-message t)
 ;;(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
  
-; Enable C++11 support for gcc
+;; Enable C++11 support for gcc
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
+;; emacs for python
+(load-file "~/TheCode/emacs-for-python/epy-init.el")
+
+;;cedet
+;(require 'cedet)
+;;;;  Helper tools.
+;(custom-set-variables
+; '(semantic-default-submodes (quote (global-semantic-decoration-mode global-semantic-idle-comp;letions-mode
+;                                     global-semantic-idle-scheduler-mode global-semanticdb-min;or-mode
+;                                     global-semantic-idle-summary-mode global-semantic-mru-boo;kmark-mode)))
+; '(semantic-idle-scheduler-idle-time 3))
+
+;(semantic-mode)
+
+;; smart complitions
+;(require 'semantic/ia)
+;(setq-mode-local c-mode semanticdb-find-default-throttle
+;                 '(project unloaded system recursive))
+;(setq-mode-local c++-mode semanticdb-find-default-throttle
+;                 '(project unloaded system recursive))
+
+;; ess
+
+;(setq load-path (cons "/usr/share/emacs/site-lisp/ess" load-path))
+;(require 'ess-site)
+
+
